@@ -2,6 +2,15 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @ratings = Rate.where(user: @user.name)
+  end
+
+  def restaurant_list
+    l = []
+    Restaurant.all.each do |restaurant|
+      l << restaurant.name
+    end
+    return l
   end
 
   # Create new User
@@ -24,6 +33,15 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:name, :email, :password,
-                                   :password_confirmation)
+                                   :password_confirmation,
+                                   :payment_type, :latitude, 
+                                   :longitude, :the_geom_meter, 
+                                   :smoker, :drink_level, 
+                                   :dress_preference, :ambience, 
+                                   :transport, :marital_status, 
+                                   :hijos, :birth_year, :interest, 
+                                   :personality, :religion, :activity, 
+                                   :color, :weight, :budget, :height)
     end
 end
+

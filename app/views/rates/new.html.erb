@@ -1,0 +1,30 @@
+<% provide(:title, 'Rate') %>
+<h1>Rate a Restaurant</h1>
+
+<% r_list = restaurant_list %>
+
+<% if r_list.empty? %>
+	<p>No Restaurants Currently</p>
+	<%= link_to "Profile", current_user %>
+<% else %>
+	<div class="row">
+	  <div class="col-md-6 col-md-offset-3">
+	    <%= form_for(@rate) do |f| %>
+
+	   	 	<%= f.label "Restaurant:" %>
+	      <%= f.select :restaurant, r_list, class: 'form-control' %>
+
+	      <%= f.label "Rating:" %>
+	      <%= f.select :rating, options_for_select(0..2), class: 'form-control' %>
+
+	      <%= f.label "Food Rating:" %>
+	      <%= f.select :food_rating, options_for_select(0..2), class: 'form-control' %>
+
+	      <%= f.label "Service Rating:" %>
+	      <%= f.select :service_rating, options_for_select(0..2), class: 'form-control' %>
+
+	      <%= f.submit "Submit", class: "btn btn-primary" %>
+	    <% end %>
+	  </div>
+	</div>
+<% end%>

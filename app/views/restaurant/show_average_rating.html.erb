@@ -1,0 +1,25 @@
+<% provide(:title, 'Restaurant Average Ratings') %>
+<%= link_to "All Ratings", restaurants_path, class: "btn btn-sm btn-primary" %>
+<div class="row">
+  <table class="table table-striped">
+  	<thead>
+  		<tr>
+  			<th>Restaurant</th>
+  			<th>Rating</th>
+  			<th>Food Rating</th>
+  			<th>Service Rating</th>
+  		</tr>
+  	</thead>
+  	<tbody>
+  		<% @average.each do |name, r| %>
+  			<tr>
+  				<td><%= name %></td>
+  				<td><%= r[:total_rating].to_f / r[:count] %></td>
+  				<td><%= r[:food_rating].to_f / r[:count] %></td>
+  				<td><%= r[:service_rating].to_f / r[:count] %></td>
+  			</tr>
+  		<% end %> 
+  	</tbody>
+  </table>
+</div>
+

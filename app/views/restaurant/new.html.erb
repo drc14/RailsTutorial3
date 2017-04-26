@@ -1,0 +1,114 @@
+<% cuisine_type = ['Afghan', 'African', 'American', 'Armenian', 'Asian', 'Australian', 'Austrian', 'Bagels', 'Bakery', 'Bar', 'Bar_Pub_Brewery', 'Barbecue', 'Basque', 'Brazilian', 'Breakfast-Brunch', 'British', 'Burgers', 'Burmese', 'Cafe-Coffee_Shop', 'Cafeteria', 'Cajun-Creole', 'California', 'Cambodian', 'Canadian', 'Caribbean', 'Chilean', 'Chinese', 'Contemporary', 'Continental-European', 'Cuban', 'Deli-Sandwiches', 'Dessert-Ice_Cream', 'Dim_Sum', 'Diner', 'Doughnuts', 'Dutch-Belgian', 'Eastern_European', 'Eclectic', 'Ethiopian', 'Family', 'Fast_Food', 'Filipino', 'Fine_Dining', 'French', 'Fusion', 'Game', 'German', 'Greek', 'Hawaiian', 'Hot_Dogs', 'Hungarian', 'Indian-Pakistani', 'Indigenous', 'Indonesian', 'International', 'Irish', 'Israeli', 'Italian', 'Jamaican', 'Japanese', 'Juice', 'Korean', 'Kosher', 'Latin_American', 'Lebanese', 'Malaysian', 'Mediterranean', 'Mexican', 'Middle_Eastern', 'Mongolian', 'Moroccan', 'North_African', 'Organic-Healthy', 'Pacific_Northwest', 'Pacific_Rim', 'Persian', 'Peruvian', 'Pizzeria', 'Polish', 'Polynesian', 'Portuguese', 'Regional', 'Romanian', 'Russian-Ukrainian', 'Scandinavian', 'Seafood', 'Soup', 'Southeast_Asian', 'Southern', 'Southwestern', 'Spanish', 'Steaks', 'Sushi', 'Swiss', 'Tapas', 'Tea_House', 'Tex-Mex', 'Thai', 'Tibetan', 'Tunisian', 'Turkish', 'Vegetarian', 'Vietnames'] %>
+
+<% payment_type = ['cash','bank debit cards','MasterCard-Eurocard','VISA','American Express'] %>
+
+<% provide(:title, 'Restaurant Sign up') %>
+<h1>Restaurant Sign up</h1>
+
+<center><%= link_to "User?", new_user_path, class: "btn btn-sm btn-primary" %></center>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for @restaurant, url: restaurant_signup_path do |f| %>
+      <%= render 'shared/error_messages' %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+      <%= f.label "Cuisine Preference" %>
+      <%= f.select :cuisine_type, cuisine_type, class: 'form-control' %>
+
+      <%= f.label :payment_type %>
+      <%= f.text_field :payment_type, class: 'form-control' %>
+
+      <%= f.label :monday_hours %>
+      <%= f.text_field :monday_hours, class: 'form-control' %>
+
+      <%= f.label :tuesday_hours %>
+      <%= f.text_field :tuesday_hours, class: 'form-control' %>
+
+      <%= f.label :wednesday_hours %>
+      <%= f.text_field :wednesday_hours, class: 'form-control' %>
+
+      <%= f.label :thursday_hours %>
+      <%= f.text_field :thursday_hours, class: 'form-control' %>
+
+      <%= f.label :friday_hours %>
+      <%= f.text_field :friday_hours, class: 'form-control' %>
+
+      <%= f.label :saturday_hours %>
+      <%= f.text_field :saturday_hours, class: 'form-control' %>
+
+      <%= f.label :sunday_hours %>
+      <%= f.text_field :sunday_hours, class: 'form-control' %>
+
+      <%= f.label :parking %>
+      <%= f.select :parking, ['public','none','yes','valet_parking','free','street','validated_parking'] , class: 'form-control' %>
+
+      <%= f.label :latitude %>
+      <%= f.text_field :latitude, class: 'form-control' %>
+
+      <%= f.label :longitude %>
+      <%= f.text_field :longitude, class: 'form-control' %>
+
+      <%= f.label :address %>
+      <%= f.text_field :address, class: 'form-control' %>
+
+      <%= f.label :city %>
+      <%= f.text_field :city, class: 'form-control' %>
+
+      <%= f.label :state %>
+      <%= f.text_field :state, class: 'form-control' %>
+
+      <%= f.label :country %>
+      <%= f.text_field :country, class: 'form-control' %>
+
+      <%= f.label :fax %>
+      <%= f.text_field :fax, class: 'form-control' %>
+
+      <%= f.label :zip %>
+      <%= f.text_field :zip, class: 'form-control' %>
+
+      <%= f.label :smoking_area %>
+      <%= f.select :smoking_area, ['none','only_at_bar','permitted','section','not_permitted'] , class: 'form-control' %>
+
+      <%= f.label :alcohol %>
+      <%= f.select :alcohol, ['No_Alcohol_Served','Wine_Beer','Full_Bar'] , class: 'form-control' %>
+
+      <%= f.label :dress_code %>
+      <%= f.select :dress_code, ['informal','casual','formal'], class: 'form-control' %>
+
+      <%= f.label :accessibility %>
+      <%= f.select :accessibility, ['no_accessibility','completely','partially'], class: 'form-control' %>
+
+      <%= f.label :price %>
+      <%= f.select :price, ['medium','low','high'], class: 'form-control' %>
+
+      <%= f.label :url %>
+      <%= f.text_field :url, class: 'form-control' %>
+
+      <%= f.label :Rambience %>
+      <%= f.select :Rambience, ['familiar','quiet'] , class: 'form-control' %>
+
+      <%= f.label :franchise %>
+      <%= f.select :franchise, ['Yes', 'No'], class: 'form-control' %>
+
+      <%= f.label :area %>
+      <%= f.select :area, ['open','closed'] , class: 'form-control' %>
+
+      <%= f.label :other_services %>
+      <%= f.select :other_services, ['none','internet','variety'] , class: 'form-control' %>
+
+      <%= f.submit "Create my account", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div> 

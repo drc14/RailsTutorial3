@@ -1,5 +1,11 @@
-<% provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
+<% cuisine_type = ['Afghan', 'African', 'American', 'Armenian', 'Asian', 'Australian', 'Austrian', 'Bagels', 'Bakery', 'Bar', 'Bar_Pub_Brewery', 'Barbecue', 'Basque', 'Brazilian', 'Breakfast-Brunch', 'British', 'Burgers', 'Burmese', 'Cafe-Coffee_Shop', 'Cafeteria', 'Cajun-Creole', 'California', 'Cambodian', 'Canadian', 'Caribbean', 'Chilean', 'Chinese', 'Contemporary', 'Continental-European', 'Cuban', 'Deli-Sandwiches', 'Dessert-Ice_Cream', 'Dim_Sum', 'Diner', 'Doughnuts', 'Dutch-Belgian', 'Eastern_European', 'Eclectic', 'Ethiopian', 'Family', 'Fast_Food', 'Filipino', 'Fine_Dining', 'French', 'Fusion', 'Game', 'German', 'Greek', 'Hawaiian', 'Hot_Dogs', 'Hungarian', 'Indian-Pakistani', 'Indigenous', 'Indonesian', 'International', 'Irish', 'Israeli', 'Italian', 'Jamaican', 'Japanese', 'Juice', 'Korean', 'Kosher', 'Latin_American', 'Lebanese', 'Malaysian', 'Mediterranean', 'Mexican', 'Middle_Eastern', 'Mongolian', 'Moroccan', 'North_African', 'Organic-Healthy', 'Pacific_Northwest', 'Pacific_Rim', 'Persian', 'Peruvian', 'Pizzeria', 'Polish', 'Polynesian', 'Portuguese', 'Regional', 'Romanian', 'Russian-Ukrainian', 'Scandinavian', 'Seafood', 'Soup', 'Southeast_Asian', 'Southern', 'Southwestern', 'Spanish', 'Steaks', 'Sushi', 'Swiss', 'Tapas', 'Tea_House', 'Tex-Mex', 'Thai', 'Tibetan', 'Tunisian', 'Turkish', 'Vegetarian', 'Vietnames'] %>
+
+<% payment_type = ['cash','bank debit cards','MasterCard-Eurocard','VISA','American Express'] %>
+
+<% provide(:title, 'User Sign up') %>
+<h1>User Sign up</h1>
+
+<center><%= link_to "Restaurant?", restaurant_signup_path, class: "btn btn-sm btn-primary" %></center>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -17,6 +23,67 @@
 
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+      <%= f.label "Cuisine Preference" %>
+      <%= f.select :cuisine_type, cuisine_type, class: 'form-control' %>
+
+      <%= f.label "Payment Preference" %>
+      <%= f.select :payment_type, payment_type, class: 'form-control' %>
+
+      <%= f.label :latitude %>
+      <%= f.text_field :latitude, class: 'form-control' %>
+
+      <%= f.label :longitude %>
+      <%= f.text_field :longitude, class: 'form-control' %>
+
+      <%= f.label "Smoker?" %>
+      <%= f.select :smoker, ['Yes', 'No'], class: 'form-control' %>
+
+      <%= f.label "Drinking Level" %>
+      <%= f.select :smoker, ['abstemious','social drinker','casual drinker'], class: 'form-control' %>
+
+      <%= f.label "Dress Preference" %>
+      <%= f.select :dress_preference, ['informal','formal','no preference','elegant'] , class: 'form-control' %>
+
+      <%= f.label :ambience %>
+      <%= f.select :ambience, ['family','friends','solitary'], class: 'form-control' %>
+
+      <%= f.label :transport %>
+      <%= f.select :transport, ['on foot','public','car owner'] , class: 'form-control' %>
+
+      <%= f.label :marital_status %>
+      <%= f.select :marital_status, ['single','married','widow'], class: 'form-control' %>
+
+      <%= f.label :hijos %>
+      <%= f.select :hijos, ['independent','kids','dependent'], class: 'form-control' %>
+
+      <%= f.label :birth_year %>
+      <%= f.text_field :birth_year, class: 'form-control' %>
+
+      <%= f.label :interest %>
+      <%= f.select :interest, ['variety','technology','none','retro','eco-friendly'] , class: 'form-control' %>
+
+      <%= f.label :personality %>
+      <%= f.select :personality, ['thrifty-protector','hunter-ostentatious','hard-worker','conformist'] , class: 'form-control' %>
+
+      <%= f.label :religion %>
+      <%= f.select :religion, ['none','Catholic','Christian','Mormon','Jewish'] , class: 'form-control' %>
+
+      <%= f.label :activity %>
+      <%= f.select :activity, ['student','professional','unemployed','working-class'] , class: 'form-control' %>
+
+      <%= f.label "Favorite Color" %>
+      <%= f.select :color, ['black','red','blue','green','purple','orange','yellow','white'] , class: 'form-control' %>
+
+      <%= f.label "Weight (Kg)" %>
+      <%= f.text_field :weight, class: 'form-control' %>
+
+      <%= f.label :budget %>
+      <%= f.select :budget, ['medium','low','high'], class: 'form-control' %>
+
+      <%= f.label "Height (meters)" %>
+      <%= f.text_field :height, class: 'form-control' %>
+
 
       <%= f.submit "Create my account", class: "btn btn-primary" %>
     <% end %>
